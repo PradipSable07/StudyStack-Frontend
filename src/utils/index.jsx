@@ -1,5 +1,8 @@
 import { SiAzuredevops, SiSpringboot, SiDotnet } from "react-icons/si";
 import { FaNodeJs, FaDatabase, FaThList } from "react-icons/fa";
+import { TbBrandCpp } from "react-icons/tb";
+import { SiThealgorithms } from "react-icons/si";
+import { MdDashboard } from "react-icons/md";
 
 import { FaJava } from "react-icons/fa";
 
@@ -7,13 +10,13 @@ export const menuItem = [
 	{
 		path: "/dashboard",
 		name: "Dashboard",
-		icon: <FaThList className='min-w-max text-3xl' />,
+		icon: <MdDashboard className='min-w-max text-3xl' />,
 	},
 
 	{
 		path: "/cpp",
 		name: "CPP",
-		icon: <FaJava className='min-w-max text-3xl' />,
+		icon: <TbBrandCpp className='min-w-max text-3xl' />,
 	},
 	{
 		path: "/core-java",
@@ -38,7 +41,7 @@ export const menuItem = [
 	{
 		path: "/dsa",
 		name: "Data Structure and Algorithem",
-		icon: <FaJava className='min-w-max text-3xl' />,
+		icon: <SiThealgorithms className='min-w-max text-3xl' />,
 	},
 	{
 		path: "/sda",
