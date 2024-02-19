@@ -1,0 +1,65 @@
+import React, { useState } from "react";
+import { PiSidebarSimpleFill, PiSidebarSimpleDuotone } from "react-icons/pi";
+import { GiPlagueDoctorProfile } from "react-icons/gi";
+
+import NavLinks from "./NavLinks";
+import { motion } from "framer-motion";
+
+const Sidebar = () => {
+	const [isOpen, setIsOpen] = useState(true);
+
+	const sidebar_motion = {
+		open: {
+			width: "16rem",
+			transition: {
+				damping: 50,
+			},
+		},
+		closed: {
+			width: "4rem",
+			transition: {
+				damping: 50,
+			},
+		},
+	};
+
+	return (
+		<aside>
+			<motion.div
+				variants={sidebar_motion}
+				animate={isOpen ? "open" : "closed"}
+				className='bg-transparent shadow-xl border-emerald-700 z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed '>
+				<div
+					onClick={() => setIsOpen(!isOpen)}
+					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
+					{isOpen ? (
+						<PiSidebarSimpleDuotone className='text-3xl' />
+					) : (
+						<PiSidebarSimpleFill className='text-3xl rotate-180' />
+					)}
+				</div>
+
+				{/* User Profile */}
+				<div className='flex m-4 mt-8 items-center flex-col gap-3 font-medium border-b border-slate-300 py-2 '>
+					<img
+						src='https://cdn-icons-png.flaticon.com/512/149/149071.png'
+						alt='..'
+						className={`w-8 h-8 rounded-full ${
+							isOpen ? "w-16 h-16" : "w-8 h-8"
+						}`}
+					/>
+					{isOpen && (
+						<span className='text-2xl whitespace-pre'>User Profile</span>
+					)}
+				</div>
+				<div className='flex flex-col h-full '>
+					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-1 font-medium overflow-x-hidden'>
+						<NavLinks />
+					</ul>
+				</div>
+			</motion.div>
+		</aside>
+	);
+};
+
+export default Sidebar;
