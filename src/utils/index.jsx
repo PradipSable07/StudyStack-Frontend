@@ -10,7 +10,7 @@ export const menuItem = [
 	{
 		path: "/dashboard",
 		name: "Dashboard",
-		icon: <MdDashboard className='min-w-max text-3xl' />,
+		icon: <MdDashboard className='min-w-max text-3xl ' />,
 	},
 
 	{
