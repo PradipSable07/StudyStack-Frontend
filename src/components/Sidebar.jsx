@@ -3,11 +3,12 @@ import { PiSidebarSimpleFill, PiSidebarSimpleDuotone } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
+import { toggleSidebar } from "@/feature/userSlice";
 
 const Sidebar = () => {
-	const [isOpen, setIsOpen] = useState(true);
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userState.user);
+	const isSidebarOpen = useSelector((state) => state.userState.isSidebarOpen);
 
 	const sidebar_motion = {
 		open: {
@@ -28,12 +29,12 @@ const Sidebar = () => {
 		<aside>
 			<motion.div
 				variants={sidebar_motion}
-				animate={isOpen ? "open" : "closed"}
+				animate={isSidebarOpen ? "open" : "closed"}
 				className='bg-background shadow-xl border-emerald-700 z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed '>
 				<div
-					onClick={() => setIsOpen(!isOpen)}
+					onClick={() => dispatch(toggleSidebar(!isSidebarOpen))}
 					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
-					{isOpen ? (
+					{isSidebarOpen ? (
 						<PiSidebarSimpleDuotone className='text-3xl' />
 					) : (
 						<PiSidebarSimpleFill className='text-3xl rotate-180' />
@@ -46,11 +47,11 @@ const Sidebar = () => {
 						src='https://cdn-icons-png.flaticon.com/512/149/149071.png'
 						alt='..'
 						className={`w-8 h-8 rounded-full ${
-							isOpen ? "w-16 h-16" : "w-8 h-8"
+							isSidebarOpen ? "w-16 h-16" : "w-8 h-8"
 						}`}
 					/>
-					{isOpen && (
-						<span className='text-2xl whitespace-pre'>{user.name}</span>
+					{isSidebarOpen && (
+						<span className='text-2xl whitespace-pre'>{user}</span>
 					)}
 				</div>
 				<div className='flex flex-col h-full '>

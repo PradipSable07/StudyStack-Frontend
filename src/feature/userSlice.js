@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 
 const initialState = {
 	user: "pradip",
+	isSidebarOpen: true,
 };
 
 const userSlice = createSlice({
