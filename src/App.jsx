@@ -16,7 +16,7 @@ import {
 	Register,
 	SDM,
 	WPT,
-} from "./pages";
+} from "./Pages";
 
 const router = createBrowserRouter([
 	{
