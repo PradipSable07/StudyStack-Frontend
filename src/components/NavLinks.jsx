@@ -8,7 +8,9 @@ const NavLinks = () => {
 			{menuItem.map((item, index) => {
 				const { path, name, icon } = item;
 				return (
-					<li key={index} className='nav-item p-1 text-wrap'>
+					<li
+						key={index}
+						className='nav-item p-1 text-wrap hover:link hover:text-violet-500 '>
 						<Link
 							to={path}
 							className='link flex justify-start items-center gap-3'>

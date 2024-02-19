@@ -1,4 +1,3 @@
-import { Button } from "./components/ui/button";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
 	About,
@@ -16,7 +15,7 @@ import {
 	Register,
 	SDM,
 	WPT,
-} from "./Pages";
+} from "./pages";
 
 const router = createBrowserRouter([
 	{

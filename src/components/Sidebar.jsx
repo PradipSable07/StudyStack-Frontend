@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { PiSidebarSimpleFill, PiSidebarSimpleDuotone } from "react-icons/pi";
-import { GiPlagueDoctorProfile } from "react-icons/gi";
-
+import { useDispatch, useSelector } from "react-redux";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 
 const Sidebar = () => {
 	const [isOpen, setIsOpen] = useState(true);
+	const dispatch = useDispatch();
+	const user = useSelector((state) => state.userState.user);
 
 	const sidebar_motion = {
 		open: {
@@ -28,7 +29,7 @@ const Sidebar = () => {
 			<motion.div
 				variants={sidebar_motion}
 				animate={isOpen ? "open" : "closed"}
-				className='bg-transparent shadow-xl border-emerald-700 z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed '>
+				className='bg-background shadow-xl border-emerald-700 z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed '>
 				<div
 					onClick={() => setIsOpen(!isOpen)}
 					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
@@ -49,7 +50,7 @@ const Sidebar = () => {
 						}`}
 					/>
 					{isOpen && (
-						<span className='text-2xl whitespace-pre'>User Profile</span>
+						<span className='text-2xl whitespace-pre'>{user.name}</span>
 					)}
 				</div>
 				<div className='flex flex-col h-full '>
