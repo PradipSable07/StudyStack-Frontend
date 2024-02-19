@@ -3,7 +3,7 @@ import { FaNodeJs, FaDatabase, FaThList } from "react-icons/fa";
 import { TbBrandCpp } from "react-icons/tb";
 import { SiThealgorithms } from "react-icons/si";
 import { MdDashboard } from "react-icons/md";
-
+import axios from "axios";
 import { FaJava } from "react-icons/fa";
 
 export const menuItem = [
@@ -54,3 +54,7 @@ export const menuItem = [
 		icon: <SiDotnet className='min-w-max text-3xl' />,
 	},
 ];
+const MAIN_URL = "https://student-stack.onrender.com/";
+export const customFetch = axios.create({
+	baseURL: MAIN_URL,
+});
