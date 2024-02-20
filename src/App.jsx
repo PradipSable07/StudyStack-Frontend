@@ -14,9 +14,11 @@ import {
 	Login,
 	Register,
 	SDM,
+	SingleDayPage,
 	WPT,
 } from "./pages";
-
+// loaders
+import { loader as cppLoader } from "./pages/CPP";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -33,12 +35,17 @@ const router = createBrowserRouter([
 				element: <AdvanceJava />,
 			},
 			{
+				path: " cpp/:_id ",
+				element: <SingleDayPage />,
+			},
+			{
 				path: "core-java",
 				element: <CoreJava />,
 			},
 			{
 				path: "cpp",
 				element: <CPP />,
+				loader: cppLoader,
 			},
 			{
 				path: "about",

@@ -12,5 +12,5 @@ export { default as Login } from "./Login";
 export { default as SDM } from "./SDM";
 export { default as WPT } from "./WPT";
 export { default as Error } from "./Error";
-
+export { default as SingleDayPage } from "./SingleDayPage";
 export { default as Dotnet } from "./Dotnet";
