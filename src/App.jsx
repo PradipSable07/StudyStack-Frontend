@@ -19,6 +19,8 @@ import {
 } from "./pages";
 // loaders
 import { loader as cppLoader } from "./pages/CPP";
+import { loader as singlePageLoader } from "./pages/SingleDayPage";
+import ErrorElement from "./components/ErrorElement";
 const router = createBrowserRouter([
 	{
 		path: "/",
@@ -28,7 +30,7 @@ const router = createBrowserRouter([
 			{
 				index: true,
 				element: <Landing />,
-				errorElement: <Error />,
+				errorElement: <ErrorElement />,
 			},
 			{
 				path: "advance-java",
@@ -37,6 +39,8 @@ const router = createBrowserRouter([
 			{
 				path: " cpp/:id ",
 				element: <SingleDayPage />,
+				loader: singlePageLoader,
+				errorElement: <ErrorElement />,
 			},
 			{
 				path: "core-java",
