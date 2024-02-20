@@ -13,11 +13,15 @@ const NavLinks = () => {
 				return (
 					<li
 						key={index}
-						className='nav-item p-1 text-wrap hover:link hover:text-violet-500 '>
+						className={`nav-item p-2 text-wrap hover:bg-emerald-500 ${
+							isSidebarOpen ? "hover:rounded-sm" : "hover:rounded-full"
+						} hover:text-white gap-4`}>
 						<Link
 							to={path}
-							className='link flex justify-start items-center gap-3'>
-							<span className='min-w-max p-1'>{icon}</span>
+							className={`link flex ${
+								isSidebarOpen ? "justify-start" : "justify-center"
+							} items-center gap-3`}>
+							<span className='min-w-max '>{icon}</span>
 							{isSidebarOpen && <span>{name}</span>}
 						</Link>
 					</li>

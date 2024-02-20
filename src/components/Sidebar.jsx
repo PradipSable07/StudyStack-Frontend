@@ -18,7 +18,7 @@ const Sidebar = () => {
 			},
 		},
 		closed: {
-			width: "4rem",
+			width: "5rem",
 			transition: {
 				damping: 50,
 			},
@@ -55,7 +55,7 @@ const Sidebar = () => {
 					)}
 				</div>
 				<div className='flex flex-col h-full '>
-					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-1 font-medium overflow-x-hidden'>
+					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-5 font-medium overflow-x-hidden'>
 						<NavLinks />
 					</ul>
 				</div>
