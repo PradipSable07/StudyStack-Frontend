@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-const defaultState = {};
+const defaultState = {
+	isloading:true,
+};
 
 const courseSlice = createSlice({
-	name: "cart",
+	name: "cource",
 	initialState: defaultState,
-	reducers: {},
+	reducers: {
+		
+	},
 });
 export const {} = courseSlice.actions;
 export default courseSlice.reducer;

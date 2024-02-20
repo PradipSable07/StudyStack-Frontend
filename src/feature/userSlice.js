@@ -27,5 +27,6 @@ const userSlice = createSlice({
 	},
 });
 
+
 export const { loginUser, logoutUser, toggleSidebar } = userSlice.actions;
 export default userSlice.reducer;
