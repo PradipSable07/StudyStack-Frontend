@@ -54,7 +54,7 @@ export const menuItem = [
 		icon: <SiDotnet className='min-w-max text-3xl' />,
 	},
 ];
-const MAIN_URL = "https://student-stack.onrender.com/";
+const MAIN_URL = "https://student-stack.onrender.com/api/v1/";
 export const customFetch = axios.create({
 	baseURL: MAIN_URL,
 });

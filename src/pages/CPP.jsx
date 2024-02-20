@@ -1,7 +1,7 @@
 import { customFetch } from "@/utils";
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
-const url = "/api/v1/cpp";
+const url = "/cpp";
 export const loader = async () => {
 	const response = await customFetch(url);
 	// console.log(response);
@@ -23,11 +23,11 @@ const CPP = () => {
 
 			<div className='flex flex-cols-2 md:flex-cols-3 lg:flex-cols-4 gap-4 mt-12'>
 				{sortedData.map((element) => {
-					const { id, day, title, Description } = element;
+					const { _id, day, title, Description } = element;
 					// console.log(element);
 					return (
 						<Link
-							to={`/cpp/${id}`}
+							to={`/cpp/${_id}`}
 							key={day}
 							className='bg-[#33323893] border border-white/[0.08] w-32 rounded-lg p-8 relative overflow-hidden'>
 							<img
