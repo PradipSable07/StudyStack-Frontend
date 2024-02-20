@@ -3,6 +3,10 @@ import { toast } from "react-toastify";
 
 const initialState = {
   user: "Tejas",
+  prnno:"201847369" ,//default value for the PRN number of current
+  firstname:"Tejas",
+  lastname:"Pinjarkar",
+  email:"tupinjarkar@gmail.com",
   isSidebarOpen: true,
 };
 
