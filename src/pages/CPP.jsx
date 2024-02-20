@@ -4,7 +4,6 @@ import { Link, useLoaderData } from "react-router-dom";
 const url = "/cpp";
 export const loader = async () => {
 	const response = await customFetch(url);
-	// console.log(response);
 	const data = response?.data;
 	return { data };
 };
@@ -24,7 +23,6 @@ const CPP = () => {
 			<div className='flex flex-cols-2 md:flex-cols-3 lg:flex-cols-4 gap-4 mt-12'>
 				{sortedData.map((element) => {
 					const { _id, day, title, Description } = element;
-					// console.log(element);
 					return (
 						<Link
 							to={`/cpp/${_id}`}

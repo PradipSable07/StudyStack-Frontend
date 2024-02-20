@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import YouTube from "react-youtube";
 
 export const loader = async ({ params }) => {
+	console.log(params);
 	const response = await customFetch(`/cpp/${params.id}`);
 	const data = response?.data;
 	return { data };
