@@ -10,7 +10,7 @@ function Login() {
       <div className="bg-blue-600 max-w-80 grid gap-5">
         <h1 className="text-4xl font-bold text-white">Login</h1>
 
-        <form action="" className="space-y-6 text-white">
+        <form action="" className="space-y-6 text-black">
           <div className="relative">
             <div className="absolute top-1 left-1 bg-white-medium rounded-full p-2 flex items-center justify-center text-blue-300">
               <TbNumber12Small />
