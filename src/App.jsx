@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 				element: <AdvanceJava />,
 			},
 			{
-				path: " cpp/:_id ",
+				path: " cpp/:id ",
 				element: <SingleDayPage />,
 			},
 			{
