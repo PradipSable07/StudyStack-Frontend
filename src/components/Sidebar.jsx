@@ -30,7 +30,7 @@ const Sidebar = () => {
 			<motion.div
 				variants={sidebar_motion}
 				animate={isSidebarOpen ? "open" : "closed"}
-				className='bg-background shadow-xl border-emerald-700 z-[999] w-[16rem] max-w-[16rem] h-screen overflow-hidden md:relative fixed '>
+				className='bg-violet-200/25 shadow-xl border-slate-300 border-r  w-[16rem] max-w-[16rem] h-screen md:relative fixed '>
 				<div
 					onClick={() => dispatch(toggleSidebar(!isSidebarOpen))}
 					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
@@ -42,12 +42,13 @@ const Sidebar = () => {
 				</div>
 
 				{/* User Profile */}
-				<div className='flex m-4 mt-8 items-center flex-col gap-3 font-medium border-b border-slate-300 py-2 '>
+
+				<div className='flex items-center flex-col gap-3 font-medium border-b border-slate-300 py-2 '>
 					<img
 						src='https://cdn-icons-png.flaticon.com/512/149/149071.png'
 						alt='..'
-						className={`w-8 h-8 rounded-full ${
-							isSidebarOpen ? "w-16 h-16" : "w-8 h-8"
+						className={` rounded-full ${
+							isSidebarOpen ? "w-16 h-16" : "w-8 h-8 mt-8"
 						}`}
 					/>
 					{isSidebarOpen && (

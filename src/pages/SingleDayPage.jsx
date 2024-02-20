@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import YouTube from "react-youtube";
 
 export const loader = async ({ params }) => {
-	console.log(params);
+	// console.log(params);
 	const response = await customFetch(`/cpp/${params.id}`);
 	const data = response?.data;
 	return { data };
@@ -13,23 +13,23 @@ export const loader = async ({ params }) => {
 const SingleDayPage = () => {
 	const { data } = useLoaderData();
 	const { Description, title, videoLink } = data;
-	console.log(videoLink);
+	// console.log(videoLink);
 	const regExp =
 		/^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
 	const match = videoLink.match(regExp);
 	const contentAfterLive = match ? match[1] : null;
-	console.log(contentAfterLive);
+	// console.log(contentAfterLive);
 
 	return (
-		<section>
-			<h1 className='text-5xl font-bold my-10 '>{title}</h1>
-			<div className='w-full  '>
+		<section className='mx-auto h-screen'>
+			<h1 className='text-5xl font-bold mt-5'>{title}</h1>
+			<div className='w-full mt-10 '>
 				<YouTube
 					videoId={contentAfterLive}
 					opts={{ width: "100%", height: "500px" }}
 				/>
 			</div>
-			<p className='my-10 font-mono font-bold'>{Description}</p>
+			<p className='mt-10 font-mono font-bold'>{Description}</p>
 		</section>
 	);
 };

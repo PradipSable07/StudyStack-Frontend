@@ -13,7 +13,7 @@ const NavLinks = () => {
 				return (
 					<li
 						key={index}
-						className={`nav-item p-2 text-wrap hover:bg-emerald-500 ${
+						className={`nav-item p-2 text-wrap hover:bg-slate-500 ${
 							isSidebarOpen ? "hover:rounded-sm" : "hover:rounded-full"
 						} hover:text-white gap-4`}>
 						<Link
