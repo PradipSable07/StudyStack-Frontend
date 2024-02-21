@@ -92,6 +92,7 @@ const router = createBrowserRouter([
 		element: <Login />,
 		errorElement: <Error />,
 		action: loginAction(store),
+
 	},
 	{
 		path: "/register",

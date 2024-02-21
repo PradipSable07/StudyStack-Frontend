@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
 const initialState = {
+
 	user: {
 		prnno: "72032638",
 		password: "secret",
@@ -33,7 +34,15 @@ const userSlice = createSlice({
 			state.isSidebarOpen = !state.isSidebarOpen;
 		},
 	},
-});
+
+//   user: "Tejas",
+//   prnno:"201847369" ,//default value for the PRN number of current
+//   firstname:"Tejas",
+//   lastname:"Pinjarkar",
+//   email:"tupinjarkar@gmail.com",
+//   isSidebarOpen: true,
+// };
+
 
 export const { loginUser, logoutUser, toggleSidebar } = userSlice.actions;
 export default userSlice.reducer;

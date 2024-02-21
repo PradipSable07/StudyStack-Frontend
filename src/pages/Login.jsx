@@ -1,3 +1,5 @@
+import { loginUser } from "@/feature/userSlice";
+import { customFetch } from "@/utils";
 import React from "react";
 import { Form, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -7,6 +9,7 @@ import { toast } from "react-toastify";
 import { customFetch } from "@/utils";
 import SubmitBtn from "@/components/SubmitBtn";
 import FormInput from "@/components/FormInput";
+
 
 export const actions =
 	(store) =>
@@ -18,6 +21,7 @@ export const actions =
 			store.dispatch(loginUser(response.data));
 			toast.success("Login Successfully 🧑🏻‍💻✌︎...");
 			return redirect("/dashboard");
+
 		} catch (error) {
 			const errorMassage =
 				error?.response?.data?.error?.message ||
@@ -26,6 +30,7 @@ export const actions =
 			return null;
 		}
 	};
+
 
 function Login() {
 	const dispatch = useDispatch();
@@ -52,6 +57,7 @@ function Login() {
 			</Form>
 		</section>
 	);
+
 }
 
 export default Login;
