@@ -52,7 +52,9 @@ const Sidebar = () => {
 						}`}
 					/>
 					{isSidebarOpen && (
-						<span className='text-2xl whitespace-pre'>{user}</span>
+						<span className='text-2xl whitespace-pre'>
+							{user.firstname} {user.lastname}
+						</span>
 					)}
 				</div>
 				<div className='flex flex-col h-full '>
