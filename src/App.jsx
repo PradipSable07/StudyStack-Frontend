@@ -20,6 +20,13 @@ import {
 // loaders
 import { loader as cppLoader } from "./pages/CPP";
 import { loader as singlePageLoader } from "./pages/SingleDayPage";
+import { loader as coreJavaLoader } from "./pages/CoreJava";
+import { loader as advanceJavaLoader } from "./pages/AdvanceJava";
+import { loader as dotNetLoader } from "./pages/Dotnet";
+import { loader as dsaLoader } from "./pages/DSA";
+import { loader as sdmLoader } from "./pages/SDM";
+import { loader as databaseLoader } from "./pages/Database";
+import { loader as wptLoader } from "./pages/WPT";
 
 // actions
 import { actions as registerAction } from "./pages/Register";
@@ -41,6 +48,7 @@ const router = createBrowserRouter([
 			{
 				path: "advance-java",
 				element: <AdvanceJava />,
+				loader: advanceJavaLoader(store),
 			},
 			{
 				path: "cpp/:id",
@@ -51,11 +59,12 @@ const router = createBrowserRouter([
 			{
 				path: "core-java",
 				element: <CoreJava />,
+				loader: coreJavaLoader(store),
 			},
 			{
 				path: "cpp",
 				element: <CPP />,
-				loader: cppLoader,
+				loader: cppLoader(store),
 			},
 			{
 				path: "about",
@@ -68,22 +77,27 @@ const router = createBrowserRouter([
 			{
 				path: "database",
 				element: <Database />,
+				loader: databaseLoader(store),
 			},
 			{
 				path: "dsa",
 				element: <DSA />,
+				loader: dsaLoader(store),
 			},
 			{
 				path: "dotnet",
 				element: <Dotnet />,
+				loader: dotNetLoader(store),
 			},
 			{
 				path: "sda",
 				element: <SDM />,
+				loader: sdmLoader(store),
 			},
 			{
 				path: "wpt",
 				element: <WPT />,
+				loader: wptLoader(store),
 			},
 		],
 	},
@@ -92,7 +106,6 @@ const router = createBrowserRouter([
 		element: <Login />,
 		errorElement: <Error />,
 		action: loginAction(store),
-
 	},
 	{
 		path: "/register",

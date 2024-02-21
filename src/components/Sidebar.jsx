@@ -3,8 +3,9 @@ import { PiSidebarSimpleFill, PiSidebarSimpleDuotone } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
-import { toggleSidebar } from "@/feature/userSlice";
-import { Link } from "react-router-dom";
+import { logoutUser, toggleSidebar } from "@/feature/userSlice";
+import { Link, redirect } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
 	const dispatch = useDispatch();
@@ -25,13 +26,17 @@ const Sidebar = () => {
 			},
 		},
 	};
+	const handleLogout = () => {
+		dispatch(logoutUser());
+		redirect("/login");
+	};
 
 	return (
 		<aside>
 			<motion.div
 				variants={sidebar_motion}
 				animate={isSidebarOpen ? "open" : "closed"}
-				className='bg-violet-200/25 shadow-xl border-slate-300 border-r  w-[16rem] max-w-[16rem] h-screen md:relative fixed '>
+				className='bg-violet-200/25 shadow-xl border-slate-300 border-r  w-[16rem] max-w-[16rem] h-screen md:relative  '>
 				<div
 					onClick={() => dispatch(toggleSidebar(!isSidebarOpen))}
 					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
@@ -61,11 +66,23 @@ const Sidebar = () => {
 					</div>
 				</Link>
 
-				<div className='flex flex-col'>
-					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-5 font-medium overflow-x-hidden'>
+				<div className='flex flex-col border-b border-slate-300'>
+					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-4 font-medium overflow-x-hidden'>
 						<NavLinks />
 					</ul>
 				</div>
+				<button
+					type='submit'
+					className={`nav-item flex mx-auto  text-wrap  ${
+						isSidebarOpen ? " justify-start" : " justify-center"
+					}  gap-4 items-center  mt-2`}
+					onClick={handleLogout}>
+					<span className='min-w-max '>
+						{" "}
+						<FiLogOut className='text-2xl' />{" "}
+					</span>
+					{isSidebarOpen && <span>Logout</span>}
+				</button>
 			</motion.div>
 		</aside>
 	);
