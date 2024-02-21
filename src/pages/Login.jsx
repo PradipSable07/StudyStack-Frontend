@@ -15,6 +15,7 @@ export const actions =
 		const data = Object.fromEntries(formData);
 		try {
 			const response = await customFetch.post("/user/login", data);
+			console.log(response);
 			store.dispatch(loginUser(response.data));
 			toast.success("Login Successfully 🧑🏻‍💻✌︎...");
 			return redirect("/dashboard");
