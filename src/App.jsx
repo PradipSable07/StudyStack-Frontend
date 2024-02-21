@@ -46,18 +46,18 @@ const router = createBrowserRouter([
 		errorElement: <Error />,
 		children: [
 			{
-				path: "advance-java",
+				path: "advjava",
 				element: <AdvanceJava />,
 				loader: advanceJavaLoader(store),
 			},
 			{
-				path: "cpp/:id",
+				path: ":section/:id",
 				element: <SingleDayPage />,
 				loader: singlePageLoader,
 				errorElement: <ErrorElement />,
 			},
 			{
-				path: "core-java",
+				path: "java",
 				element: <CoreJava />,
 				loader: coreJavaLoader(store),
 			},

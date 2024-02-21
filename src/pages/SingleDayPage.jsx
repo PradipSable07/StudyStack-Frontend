@@ -4,8 +4,8 @@ import { useLoaderData } from "react-router-dom";
 import YouTube from "react-youtube";
 
 export const loader = async ({ params }) => {
-	// console.log(params);
-	const response = await customFetch(`/cpp/${params.id}`);
+	console.log(params);
+	const response = await customFetch(`${params.section}/${params.id}`);
 	const data = response?.data;
 	return { data };
 };
@@ -27,6 +27,7 @@ const SingleDayPage = () => {
 				<YouTube
 					videoId={contentAfterLive}
 					opts={{ width: "100%", height: "500px" }}
+					onReady={(event) => event.target.pauseVideo()}
 				/>
 			</div>
 			<p className='mt-10 font-mono font-bold'>{Description}</p>
