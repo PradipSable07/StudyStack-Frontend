@@ -7,7 +7,7 @@ const getUserFromLocalStorage = () => {
 
 const initialState = {
 	user: getUserFromLocalStorage(),
-	isSidebarOpen: true,
+	isSidebarOpen: false,
 };
 
 const userSlice = createSlice({
