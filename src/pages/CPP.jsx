@@ -1,5 +1,5 @@
 import { DayCard } from "./../components/DayCard";
-import { customFetch } from "@/utils";
+import { customFetch } from "../utils";
 import React, { useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 const url = "/cpp";

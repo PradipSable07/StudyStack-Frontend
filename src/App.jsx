@@ -20,18 +20,24 @@ import {
 // loaders
 import { loader as cppLoader } from "./pages/CPP";
 import { loader as singlePageLoader } from "./pages/SingleDayPage";
+
+// actions
+import { actions as registerAction } from "./pages/Register";
+import { actions as loginAction } from "./pages/Login";
+
 import ErrorElement from "./components/ErrorElement";
+import { store } from "./store";
 const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Landing />,
+		errorElement: <Error />,
+	},
 	{
 		path: "/",
 		element: <HomeLayout />,
 		errorElement: <Error />,
 		children: [
-			{
-				index: true,
-				element: <Landing />,
-				errorElement: <ErrorElement />,
-			},
 			{
 				path: "advance-java",
 				element: <AdvanceJava />,
@@ -85,12 +91,14 @@ const router = createBrowserRouter([
 		path: "/login",
 		element: <Login />,
 		errorElement: <Error />,
-		
+		action: loginAction(store),
+
 	},
 	{
 		path: "/register",
 		element: <Register />,
 		errorElement: <Error />,
+		action: registerAction,
 	},
 ]);
 
