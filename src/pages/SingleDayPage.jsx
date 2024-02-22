@@ -39,21 +39,23 @@ const SingleDayPage = () => {
 		playerVars: {
 			autoplay: 1,
 			controls: 1,
-			loop: 0,
-			mute: 0,
-			start: 30,
-			end: 180,
-			disablekb: 1,
+			disablekb: 0,
 			modestbranding: 1,
 			showinfo: 0,
+			rel: 0,
 		},
+	};
+	const onReady = (event) => {
+		console.log("Player is ready:", event.target);
+		// Optionally focus the player for keyboard accessibility
+		event.target.getIframe().focus();
 	};
 	return (
 		<section className='mx-auto h-screen'>
 			<SectionTitle title={title} />
 			<BreadCrumb />
-			<div className='w-full mt-5 aspect-w-16 aspect-h-9 '>
-				<YouTube videoId={contentAfterLive} opts={opts} />
+			<div tabIndex='0' className='w-full mt-5 aspect-w-16 aspect-h-9 '>
+				<YouTube videoId={contentAfterLive} opts={opts} onReady={onReady} />
 			</div>
 			<p className='mt-7 font-mono font-bold'>{Description}</p>
 		</section>

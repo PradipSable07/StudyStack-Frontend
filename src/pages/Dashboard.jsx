@@ -9,7 +9,7 @@ const Dashboard = () => {
 		<section className='mx-auto w-[80%] h-screen pt-10'>
 			<SectionTitle title='Dashboard' />
 
-			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10  h-[30rem] md:h-[35rem] overflow-y-scroll  snap-y'>
+			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10 h-96 overflow-y-scroll snap-both scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent '>
 				{menuItem.map((item) => {
 					const { path, name, icon } = item;
 					if (path === "/dashboard") return null;

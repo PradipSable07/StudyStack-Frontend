@@ -30,7 +30,7 @@ const Dotnet = () => {
 		<section className='mx-auto w-[80%] h-screen pt-10'>
 			<SectionTitle title='Software Development Methodology' />
 			<BreadCrumb />
-			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10  h-[30rem] md:h-[35rem] overflow-y-scroll  snap-y'>
+			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10 h-96 overflow-y-scroll snap-both scrollbar-thin scrollbar-thumb-transparent scrollbar-track-transparent '>
 				{sortedData.map((element) => {
 					const { _id, day, title, Description } = element;
 					return (
