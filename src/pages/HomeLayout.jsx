@@ -14,7 +14,7 @@ const HomeLayout = () => {
 				{isLoading ? (
 					<Loader />
 				) : (
-					<main className='max-w-5xl ml-5  mx-auto flex-1'>
+					<main className='max-w-5xl w-full mx-auto flex-1'>
 						<Outlet />
 					</main>
 				)}

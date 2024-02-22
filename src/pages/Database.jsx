@@ -3,6 +3,7 @@ import { DayCard } from "./../components/DayCard";
 import { customFetch } from "../utils";
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import BreadCrumb from "@/components/BreadCrump";
 const url = "/data";
 export const loader = (store) => async () => {
 	const user = store.getState().userState.user;
@@ -28,8 +29,9 @@ const Database = () => {
 	return (
 		<section className='mx-auto w-[80%] h-screen pt-10'>
 			<SectionTitle title='Database' />
+			<BreadCrumb />
 
-			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 mt-10'>
+			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10  h-[30rem] md:h-[35rem] overflow-y-scroll  snap-y'>
 				{sortedData.map((element) => {
 					const { _id, day, title, Description } = element;
 					return (
