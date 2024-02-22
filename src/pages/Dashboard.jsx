@@ -1,3 +1,4 @@
+import BreadCrumb from "@/components/BreadCrump";
 import { SectionTitle } from "@/components/SectionTitle";
 import { menuItem } from "@/utils";
 import React from "react";
@@ -8,7 +9,7 @@ const Dashboard = () => {
 		<section className='mx-auto w-[80%] h-screen pt-10'>
 			<SectionTitle title='Dashboard' />
 
-			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 mt-10'>
+			<div className='grid gap-4 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 mt-10  h-[30rem] md:h-[35rem] overflow-y-scroll  snap-y'>
 				{menuItem.map((item) => {
 					const { path, name, icon } = item;
 					if (path === "/dashboard") return null;
@@ -16,7 +17,7 @@ const Dashboard = () => {
 						<Link
 							to={path}
 							key={name}
-							className={`bg-white w-28 h-28 sm:w-52 sm:h-30  bg-opacity-30 shadow-lg backdrop-blur-lg  border-opacity-20 border-white rounded-lg border-2 p-4 flex flex-col justify-center items-center`}>
+							className={`bg-white w-full sm:w-24 sm:h-30 md:w-48 lg:w-64 h-24 md:h-36 lg:h-40 bg-opacity-30 shadow-lg backdrop-blur-lg border-opacity-20 border-white rounded-lg border-2 p-4 flex flex-col justify-center items-center`}>
 							{icon} {name}
 						</Link>
 					);

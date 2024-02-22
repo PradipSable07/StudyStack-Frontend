@@ -20,7 +20,8 @@ const Sidebar = () => {
 			},
 		},
 		closed: {
-			width: "5rem",
+			width: 0,
+			overflow: "hidden",
 			transition: {
 				damping: 50,
 			},
@@ -33,20 +34,19 @@ const Sidebar = () => {
 
 	return (
 		<aside>
+			<div
+				onClick={() => dispatch(toggleSidebar(!isSidebarOpen))}
+				className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
+				{isSidebarOpen ? (
+					<PiSidebarSimpleDuotone className='text-3xl' />
+				) : (
+					<PiSidebarSimpleFill className='text-3xl rotate-180' />
+				)}
+			</div>
 			<motion.div
 				variants={sidebar_motion}
 				animate={isSidebarOpen ? "open" : "closed"}
-				className='bg-violet-200/25 shadow-xl border-slate-300 border-r  w-[16rem] max-w-[16rem] h-screen md:relative  '>
-				<div
-					onClick={() => dispatch(toggleSidebar(!isSidebarOpen))}
-					className='absolute right-1 top-1 cursor-pointer  transition-[5s]'>
-					{isSidebarOpen ? (
-						<PiSidebarSimpleDuotone className='text-3xl' />
-					) : (
-						<PiSidebarSimpleFill className='text-3xl rotate-180' />
-					)}
-				</div>
-
+				className='bg-violet-200 shadow-xl border-slate-300 border-r z-[999] w-[16rem] max-w-[16rem] h-screen fixed '>
 				{/* User Profile */}
 				<Link to={"/about"}>
 					{" "}
