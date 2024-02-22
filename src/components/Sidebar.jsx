@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import NavLinks from "./NavLinks";
 import { motion } from "framer-motion";
 import { logoutUser, toggleSidebar } from "@/feature/userSlice";
-import { Link, redirect } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
-	const dispatch = useDispatch();
-	const user = useSelector((state) => state.userState.user);
-	const isSidebarOpen = useSelector((state) => state.userState.isSidebarOpen);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.userState.user);
+  const isSidebarOpen = useSelector((state) => state.userState.isSidebarOpen);
 
 	const sidebar_motion = {
 		open: {
@@ -66,26 +67,27 @@ const Sidebar = () => {
 					</div>
 				</Link>
 
-				<div className='flex flex-col border-b border-slate-300'>
-					<ul className='whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-4 font-medium overflow-x-hidden'>
-						<NavLinks />
-					</ul>
-				</div>
-				<button
-					type='submit'
-					className={`nav-item flex mx-auto  text-wrap  ${
-						isSidebarOpen ? " justify-start" : " justify-center"
-					}  gap-4 items-center  mt-2`}
-					onClick={handleLogout}>
-					<span className='min-w-max '>
-						{" "}
-						<FiLogOut className='text-2xl' />{" "}
-					</span>
-					{isSidebarOpen && <span>Logout</span>}
-				</button>
-			</motion.div>
-		</aside>
-	);
+        <div className="flex flex-col border-b border-slate-300">
+          <ul className="whitespace-pre px-3 text-[0.9rem] py-2 flex flex-col gap-4 font-medium overflow-x-hidden">
+            <NavLinks />
+          </ul>
+        </div>
+        <button
+          type="submit"
+          className={`nav-item flex mx-auto  text-wrap  ${
+            isSidebarOpen ? " justify-start" : " justify-center"
+          }  gap-4 items-center  mt-2`}
+          onClick={handleLogout}
+        >
+          <span className="min-w-max ">
+            {" "}
+            <FiLogOut className="text-2xl" />{" "}
+          </span>
+          {isSidebarOpen && <span>Logout</span>}
+        </button>
+      </motion.div>
+    </aside>
+  );
 };
 
 export default Sidebar;
